@@ -1,2 +1,4 @@
 # app-xmldocs
-App with desktop and mobile version, no database, all data in XML, everything packed.
+- MVC application with desktop and mobile version
+- all data readed from XML
+- packing to PHAR/PHP (strict package)

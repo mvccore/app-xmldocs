@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<doc:data xmlns:doc="/Documents.xsd">
+	<doc:title>Extensions</doc:title>
+	<doc:description></doc:description>
+	<doc:keywords></doc:keywords>
+	<doc:robots>index,follow,noarchive</doc:robots>
+	<doc:og-image></doc:og-image>
+	<doc:og-title></doc:og-title>
+	<doc:og-description></doc:og-description>
+	<doc:itemprop-name></doc:itemprop-name>
+	<doc:itemprop-description></doc:itemprop-description>
+	<doc:perex></doc:perex>
+	<doc:body>
+		<h1>Extensions</h1>
+	</doc:body>
+</doc:data>

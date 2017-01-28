@@ -28,7 +28,7 @@ $config = array(
 		"^/vendor/autoload\.php",					// composer autoload file
 		"^/vendor/mvccore/mvccore/src/startup\.php",// mvccore autoload file
 		"^/vendor/tracy/.*",						// tracy library (https://tracy.nette.org/)
-		"^/vendor/mvccore/ext-tracy.*",				// mvccore tracy adapter and all tracy panel extensions
+		"^/vendor/mvccore/ext-debug-tracy.*",		// mvccore tracy adapter and all tracy panel extensions
 		"^/vendor/nette/safe-stream.*",				// nette safe stream used to complete assets in cache
 		"^/vendor/mrclay/.*",						// HTML/JS/CSS minify library
 
@@ -39,10 +39,6 @@ $config = array(
 	// include all scripts or files, where it's relative path from sourceDir match any of these rules:
 	// (include paterns always overides exclude patterns)
 	'includePatterns'		=> array(
-		// include previously excluded SimpleForm validators - but only realy used validators
-		"^/vendor/mvccore/simpleform/src/SimpleForm/Validators/(Maxlength|SafeString|NumberField|Integer|Url)\.php$",
-		// include previously excluded SimpleForm fields - but only realy used fields
-		"^/vendor/mvccore/simpleform/src/SimpleForm/(Text|Password|Hidden|SubmitButton|SubmitInput|Button|Number)\.php$",
 	),
 	// process simple strings replacements on all readed PHP scripts before saving into result package:
 	// (replacements are executed before configured minification in RAM, they don't affect anythin on hard drive)

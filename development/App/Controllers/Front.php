@@ -1,8 +1,10 @@
 <?php
 
-class App_Controllers_Front extends App_Controllers_Base
+namespace App\Controllers;
+
+class Front extends Base
 {
-	/** @var App_Models_Document */
+	/** @var \App\Models\Document */
 	protected $document;
 
 	public function PreDispatch () {
@@ -14,8 +16,8 @@ class App_Controllers_Front extends App_Controllers_Base
 		}
 	}
 	private function _preDispatchSetUpBundles () {
-		MvcCoreExt_ViewHelpers_Assets::SetGlobalOptions(
-			(array) MvcCore_Config::GetSystem()->assets
+		\MvcCore\Ext\View\Helpers\Assets::SetGlobalOptions(
+			(array) \MvcCore\Config::GetSystem()->assets
 		);
 		$static = self::$staticPath;
 		$this->view->Css('fixedHead')

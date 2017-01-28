@@ -1,6 +1,10 @@
 <?php
 
-class App_Controllers_Front_Index extends App_Controllers_Front
+namespace App\Controllers\Front;
+
+use App\Controllers;
+
+class Index extends Controllers\Front
 {
 	public function Init () {
 		parent::Init();
@@ -31,16 +35,16 @@ class App_Controllers_Front_Index extends App_Controllers_Front
 				);
 			}
 			$documentPath = '/' . $this->lang . $path;
-			$matchedDocs = App_Models_Document::GetByPath($documentPath, TRUE);
+			$matchedDocs = \App\Models\Document::GetByPath($documentPath, TRUE);
 			if (!$matchedDocs) {
-				throw new Exception(
+				throw new \Exception(
 					"No matched document found in path: '$documentPath'.", 404
 				);
 			} else {
 				$this->document = $matchedDocs[0];
 			}
 		} else {
-			$this->document = new App_Models_Document;
+			$this->document = new \App\Models\Document;
 		}
 	}
 }

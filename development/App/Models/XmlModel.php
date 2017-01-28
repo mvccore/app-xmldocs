@@ -1,6 +1,8 @@
 <?php
 
-class App_Models_XmlModel extends App_Models_Base
+namespace App\Models;
+
+class XmlModel extends Base
 {
 	protected static $dataPath = '/Var';
 	protected static $xmlNameSpace = null;
@@ -14,7 +16,7 @@ class App_Models_XmlModel extends App_Models_Base
 		$path = static::sanitizePath($path);
 		// if request path is "/" or "/any-directory/any-subdirectory/" - fix path to "/index" or "/any-directory/any-subdirectory/index"
 		$xmlPath = (mb_substr($path, mb_strlen($path) - 1, 1) === '/') ? $path . 'index' : $path ;
-		$xmlFullPath = MvcCore::GetInstance()->GetRequest()->AppRoot . static::$dataPath;
+		$xmlFullPath = \MvcCore::GetInstance()->GetRequest()->AppRoot . static::$dataPath;
 		$fileFullPath = str_replace('\\', '/', $xmlFullPath . $xmlPath . '.xml');
 		if (!file_exists($fileFullPath)) {
 			return FALSE;
@@ -44,7 +46,7 @@ class App_Models_XmlModel extends App_Models_Base
 	protected static function loadXmlNamespaceAndSchema (& $xmlStr, & $fileFullPath) {
 		preg_match("# xmlns\:([a-z0-9]*)=\"([^\"]*)\"#", $xmlStr, $matches);
 		if (!isset($matches[1]) || !isset($matches[2])) {
-			throw new Exception(
+			throw new \Exception(
 				"[".get_called_class()."] No XML namespace and schema defined in file: '$fileFullPath'. "
 					."Define namespace and scheme file in root node: "
 					."'<schemeName:rootNodeName xmlns:schemeName=\"../Path/To/Scheme.xsd\">'"
@@ -58,7 +60,7 @@ class App_Models_XmlModel extends App_Models_Base
 				'columnTypes'	=> array(),
 				'replacements'	=> array(),
 			);
-			$schemeFileFullPath = MvcCore::GetInstance()->GetRequest()->AppRoot . self::$dataPath . $matches[2];
+			$schemeFileFullPath = \MvcCore::GetInstance()->GetRequest()->AppRoot . self::$dataPath . $matches[2];
 			$xmlScheme = static::loadXmlScheme($schemeFileFullPath);
 			$rootNodeDescriptorBase = $xmlScheme->children('xs', TRUE);
 			$rootNodeDescriptorType = $rootNodeDescriptorBase->children('xs', TRUE);
@@ -109,7 +111,7 @@ class App_Models_XmlModel extends App_Models_Base
 				$column = $e->column;
 				$msgs[] = "[$clsName] $msg (file: $fileFullPath, line: $line, column: $column)";
 			}
-			throw new Exception (implode('<br />', $msgs));
+			throw new \Exception (implode('<br />', $msgs));
 		}
 		return $xml;
 	}
@@ -122,7 +124,7 @@ class App_Models_XmlModel extends App_Models_Base
 		foreach ($xml->children(static::$xmlNameSpace, TRUE) as $dataNode) {
 			$nodeName = $dataNode->getName();
 			$rawNodeValue = trim((string)$dataNode);
-			$propertyName = MvcCore_Tool::GetPascalCaseFromDashed($nodeName);
+			$propertyName = \MvcCore\Tool::GetPascalCaseFromDashed($nodeName);
 			$dataType = 'string';
 			if (isset($columnTypes[$nodeName])) {
 				$dataType = $columnTypes[$nodeName];
@@ -139,8 +141,8 @@ class App_Models_XmlModel extends App_Models_Base
 			$this->$propertyName = boolval($rawNodeValue);
 		} else if ($dataType == 'html') {
 			$this->$propertyName = str_replace(
-				array('%basePath'), 
-				array(MvcCore::GetInstance()->GetRequest()->BasePath,), 
+				array('%basePath'),
+				array(\MvcCore::GetInstance()->GetRequest()->BasePath,), 
 				$rawNodeValue
 			);
 		} else {

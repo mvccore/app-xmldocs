@@ -1,6 +1,8 @@
 <?php
 
-class App_Controllers_Admin extends App_Controllers_Base
+namespace App\Controllers;
+
+class Admin extends Base
 {
 	public function PreDispatch () {
 		parent::PreDispatch();
@@ -10,8 +12,8 @@ class App_Controllers_Admin extends App_Controllers_Base
 		}
 	}
 	private function _preDispatchSetUpBundles () {
-		MvcCoreExt_ViewHelpers_Assets::SetGlobalOptions(
-			(array) MvcCore_Config::GetSystem()->assets
+		\MvcCore\Ext\View\Helpers\Assets::SetGlobalOptions(
+			(array) \MvcCore\Config::GetSystem()->assets
 		);
 		$static = self::$staticPath;
 		/*$this->view->Css('fixedHead')

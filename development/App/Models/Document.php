@@ -1,6 +1,8 @@
 <?php
 
-class App_Models_Document extends App_Models_XmlModel
+namespace App\Models;
+
+class Document extends XmlModel
 {
 	protected static $dataPath = '/Var/Documents';
 	/**
@@ -12,11 +14,11 @@ class App_Models_Document extends App_Models_XmlModel
 	 * matching ordering digits at target xml file beginning.
 	 * @param string $path 
 	 * @param bool   $firstMatchOnly
-	 * @return App_Models_Document[]
+	 * @return \App\Models\Document[]
 	 */
 	public static function GetByPath ($path = '', $firstMatchOnly = FALSE) {
 		$result = array();
-		$xmlFullPath = MvcCore::GetInstance()->GetRequest()->AppRoot . static::$dataPath;
+		$xmlFullPath = \MvcCore::GetInstance()->GetRequest()->AppRoot . static::$dataPath;
 		$path = rtrim($path);
 		$correctedPath = is_dir($xmlFullPath . '/' . ltrim($path, '/')) ? rtrim($path, '/') . '/index' : $path;
 		$lastSlashPos = strrpos($correctedPath, '/');
@@ -27,7 +29,7 @@ class App_Models_Document extends App_Models_XmlModel
 			$pathToMatch = "([0-9]*)\-" . substr($correctedPath, $lastSlashPos + 1);
 		}
 		if (!file_exists($xmlFullPath) && !is_dir($xmlFullPath)) return array();
-		$di = new DirectoryIterator($xmlFullPath);
+		$di = new \DirectoryIterator($xmlFullPath);
 		foreach ($di as $item) {
 			if ($item->isDir()) continue;
 			if ($item->getExtension() != 'xml') continue;

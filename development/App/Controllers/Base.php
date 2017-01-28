@@ -1,8 +1,10 @@
 <?php
 
-class App_Controllers_Base extends MvcCore_Controller
+namespace App\Controllers;
+
+class Base extends \MvcCore\Controller
 {
-	/** @var App_Models_Translator */
+	/** @var \App\Models\Translator */
 	protected static $translator;
 
 	/** @var string */
@@ -11,6 +13,6 @@ class App_Controllers_Base extends MvcCore_Controller
 	public function Init () {
 		parent::Init();
 		$this->lang = $this->request->Lang;
-		self::$translator = App_Models_Translator::GetInstance();
+		self::$translator = \App\Models\Translator::GetInstance();
 	}
 }

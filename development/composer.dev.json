@@ -1,0 +1,63 @@
+{
+	"repositories": [{
+		"packagist.org": false
+	},{
+		"type": "path",
+		"url": "../../../packages/mvccore/mvccore"
+	},{
+		"type": "path",
+		"url": "../../../packages/mvccore/ext-router-localization"
+	},{
+		"type": "path",
+		"url": "../../../packages/mvccore/ext-router-media"
+	},{
+		"type": "path",
+		"url": "../../../packages/mvccore/ext-router-extended"
+	},{
+		"type": "path",
+		"url": "../../../packages/mvccore/ext-view-helper"
+	},{
+		"type": "path",
+		"url": "../../../packages/mvccore/ext-view-helper-assets"
+	},{
+		"type": "path",
+		"url": "../../../packages/mvccore/ext-view-helper-linebreaks"
+	},{
+		"type": "path",
+		"url": "../../../packages/mobiledetect/mobiledetectlib"
+	},{
+		"type": "path",
+		"url": "../../../packages/nette/safe-stream"
+	},{
+		"type": "path",
+		"url": "../../../packages/tracy/tracy"
+	},{
+		"type": "path",
+		"url": "../../../packages/mrclay/minify"
+	},{
+		"type": "path",
+		"url": "../../../packages/mvccore/ext-debug-tracy"
+	},{
+		"type": "path",
+		"url": "../../../packages/mvccore/ext-debug-tracy-mvccore"
+	},{
+		"type": "path",
+		"url": "../../../packages/mvccore/ext-debug-tracy-routing"
+	},{
+		"type": "path",
+		"url": "../../../packages/mvccore/ext-debug-tracy-session"
+	}],
+	"require": {
+		"php": ">=5.4.0",
+		"mvccore/mvccore": "dev-master",
+		"mvccore/ext-router-localization": "dev-master",
+		"mvccore/ext-router-media": "dev-master",
+		"mvccore/ext-view-helper-assets": "dev-master",
+		"mvccore/ext-view-helper-linebreaks": "dev-master",
+		"mvccore/ext-debug-tracy": "dev-master",
+		"mvccore/ext-debug-tracy-mvccore": "dev-master",
+		"mvccore/ext-debug-tracy-routing": "dev-master",
+		"mvccore/ext-debug-tracy-session": "dev-master"
+	},
+	"minimum-stability": "dev"
+}

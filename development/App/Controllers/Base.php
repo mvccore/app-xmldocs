@@ -4,15 +4,17 @@ namespace App\Controllers;
 
 class Base extends \MvcCore\Controller
 {
-	/** @var \App\Models\Translator */
+	/** @var \App\Models\Translator|\MvcCore\Interfaces\IModel */
 	protected static $translator;
 
-	/** @var string */
-	protected $lang = '';
+	/** @var string TODO */
+	protected $lang = 'cs';
 	
 	public function Init () {
 		parent::Init();
-		$this->lang = $this->request->Lang;
+		// TODO
+		//$this->lang = $this->request->GetLang();
+		$this->request->SetLang($this->lang);
 		self::$translator = \App\Models\Translator::GetInstance();
 	}
 }

@@ -1,0 +1,9 @@
+<ul class="horizontal-navigation">
+	<?php 
+		/** @var $this \MvcCore\View */ 
+		/** @var $this->docs \App\Models\Document[] */ 
+		foreach ($this->docs as $doc):
+	?>
+		<li><a href="<?php echo $doc->GetUrl(); ?>"><?php echo $doc->Title; ?></a></li>
+	<?php endforeach; ?>
+</ul>

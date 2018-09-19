@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 class Admin extends Base
 {
+	protected $layout = 'admin';
 	public function PreDispatch () {
 		parent::PreDispatch();
 		if ($this->viewEnabled) {
@@ -12,7 +13,7 @@ class Admin extends Base
 		}
 	}
 	private function _preDispatchSetUpBundles () {
-		\MvcCore\Ext\View\Helpers\Assets::SetGlobalOptions(
+		\MvcCore\Ext\Views\Helpers\Assets::SetGlobalOptions(
 			(array) \MvcCore\Config::GetSystem()->assets
 		);
 		$static = self::$staticPath;

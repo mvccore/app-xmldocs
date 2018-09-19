@@ -1,0 +1,18 @@
+
+/* /static/css/front/fonts.css */
+@font-face{font-family:'MyriadRegular';src:url('../../static/fonts/myriadwebpro/regular.eot');src:url('../../static/fonts/myriadwebpro/regular.eot?#iefix') format('embedded-opentype'),
+url('../../static/fonts/myriadwebpro/regular.woff') format('woff'),
+url('../../static/fonts/myriadwebpro/regular.ttf') format('truetype'),
+url('../../static/fonts/myriadwebpro/regular.svg#MyriadRegular') format('svg');font-weight:normal;font-style:normal}@font-face{font-family:'MyriadBold';src:url('../../static/fonts/myriadwebpro/bold.eot');src:url('../../static/fonts/myriadwebpro/bold.eot?#iefix') format('embedded-opentype'),
+url('../../static/fonts/myriadwebpro/bold.woff') format('woff'),
+url('../../static/fonts/myriadwebpro/bold.ttf') format('truetype'),
+url('../../static/fonts/myriadwebpro/bold.svg#MyriadBold') format('svg');font-weight:bold;font-style:normal}
+
+/* /static/css/front/all.css */
+html,body{margin:0;font-family:'MyriadRegular',Arial,Helvetica,sans-serif;font-size:14px;line-height:1.5em}html{background:#0f385b;background:-moz-linear-gradient(top,  #0f385b 0%, #448dc4 100%);background:-webkit-linear-gradient(top,  #0f385b 0%,#448dc4 100%);background:linear-gradient(to bottom,  #0f385b 0%,#448dc4 100%);filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#0f385b', endColorstr='#448dc4',GradientType=0 );height:100%}a{color:#236fd0;cursor:pointer;text-decoration:none;border-bottom:1px solid #236fd0}a:hover,a:focus,a:active{color:#6697d6;border-bottom:1px solid #6697d6}a:visited{color:#587598;border-bottom:1px solid #587598}.master-container{width:500px;margin:30px
+auto 50px auto}.content ul.horizontal-navigation{display:table;width:100%;margin:0;padding:0}.content ul.horizontal-navigation
+li{list-style-type:none;display:table-cell;margin:0;padding:0}.content ul.horizontal-navigation li
+a{display:inline-block}.content{text-align:center;padding:25px;background:#fff;border-radius:3px;box-shadow:0 0 15px rgba(0,0,0,0.6)}.content
+h1{font-family:'MyriadBold';font-size:2.5em;line-height:1.5em;margin:0
+0 25px 0;padding:0
+0 0 50px;background:url('../../static/img/mvccore-logo.png') 0 6px no-repeat}.content *:last-child{margin-bottom:5px}

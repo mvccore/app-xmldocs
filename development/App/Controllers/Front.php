@@ -4,19 +4,25 @@ namespace App\Controllers;
 
 class Front extends Base
 {
-	/** @var \App\Models\Document */
+	protected $layout = 'front';
+
+	/** @var \App\Models\Document|\MvcCore\Interfaces\IModel */
 	protected $document;
 
 	public function PreDispatch () {
 		parent::PreDispatch();
 		if ($this->viewEnabled) {
 			$this->view->Lang = $this->lang;
+			$this->view->MediaSiteVersion = $this->request->GetMediaSiteVersion();
+			x($this->view->MediaSiteVersion);
+			$horizontalNav = new \App\Controllers\Front\Controls\HorizontalNavigation($this);
+			$this->AddChildController($horizontalNav)->view->horizontalNav = $horizontalNav;
 			$this->_preDispatchSetUpBundles();
 			$this->_preDispatchSetUpSeoProperties();
 		}
 	}
 	private function _preDispatchSetUpBundles () {
-		\MvcCore\Ext\View\Helpers\Assets::SetGlobalOptions(
+		\MvcCore\Ext\Views\Helpers\Assets::SetGlobalOptions(
 			(array) \MvcCore\Config::GetSystem()->assets
 		);
 		$static = self::$staticPath;
@@ -32,9 +38,9 @@ class Front extends Base
 	}
 	private function _preDispatchSetUpSeoProperties () {
 		$this->view->OgSiteName = 'MvcCore';
-		$this->view->OgUrl = $this->request->RequestUrl;
+		$this->view->OgUrl = $this->request->GetRequestUrl();
 		if ($this->document && $this->document->Id) {
-			$this->document->OgImage = $this->request->DomainUrl . $this->document->OgImage;
+			$this->document->OgImage = $this->request->GetDomainUrl() . $this->document->OgImage;
 		}
 	}
 }

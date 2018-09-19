@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<doc:data xmlns:doc="/Documents.xsd">
+<doc:data xmlns:doc="../../Documents.xsd">
 	<doc:title>Dokumentace</doc:title>
 	<doc:description></doc:description>
 	<doc:keywords></doc:keywords>

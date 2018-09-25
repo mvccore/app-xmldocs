@@ -14,7 +14,6 @@ class Front extends Base
 		if ($this->viewEnabled) {
 			$this->view->Lang = $this->lang;
 			$this->view->MediaSiteVersion = $this->request->GetMediaSiteVersion();
-			x($this->view->MediaSiteVersion);
 			$horizontalNav = new \App\Controllers\Front\Controls\HorizontalNavigation($this);
 			$this->AddChildController($horizontalNav)->view->horizontalNav = $horizontalNav;
 			$this->_preDispatchSetUpBundles();

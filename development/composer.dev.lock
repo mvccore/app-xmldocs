@@ -292,7 +292,7 @@
             "dist": {
                 "type": "path",
                 "url": "../../../packages/mvccore/ext-router-extended",
-                "reference": "dab8a6480b3488cd816cd58183cabd5ec24a3a8d",
+                "reference": "4b40ebef0d42affcbcf9ef931fa79b54b9ee7802",
                 "shasum": null
             },
             "require": {
@@ -333,7 +333,7 @@
             "dist": {
                 "type": "path",
                 "url": "../../../packages/mvccore/ext-router-localization",
-                "reference": "a6f9a9c8589a5adf492b4aff8559b0f416783c92",
+                "reference": "35444fc4291e597942f8dbc3ef62626a23db0709",
                 "shasum": null
             },
             "require": {
@@ -385,7 +385,7 @@
             "dist": {
                 "type": "path",
                 "url": "../../../packages/mvccore/ext-router-media",
-                "reference": "9caa8b124089e9cc300e4892f0f4f7dfecb22156",
+                "reference": "5f83fca6c4d7870d59ba6a1d31cce2fc51cdbd1d",
                 "shasum": null
             },
             "require": {
@@ -587,7 +587,7 @@
             "dist": {
                 "type": "path",
                 "url": "../../../packages/mvccore/mvccore",
-                "reference": "61c0fadd19e609d90217b3d7d1a91aa9b0f92974",
+                "reference": "e950bbf06e4144a36b927bbcb7c60a78df877a23",
                 "shasum": null
             },
             "require": {

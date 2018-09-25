@@ -14,11 +14,11 @@ class Bootstrap
 		}
 
 		/*$app
-			->SetRouterClass('\MvcCore\Ext\Routers\Lang')
+			->SetRouterClass('\\MvcCore\\Ext\\Routers\\Media')
 			->SetDefaultControllerName('Front\Index');*/
-
+		
 		$app
-			->SetRouterClass('\MvcCore\Ext\Routers\Media')
+			->SetRouterClass('\\MvcCore\\Ext\\Routers\\Locatization')
 			->SetDefaultControllerName('Front\Index');
 
 		// use this line only if you want to pack application without JS/CSS/fonts/images
@@ -26,25 +26,33 @@ class Bootstrap
 		// you can use this variant in modes PHP_PRESERVE_PACKAGE, PHP_PRESERVE_HDD and PHP_STRICT_HDD
 		//\MvcCore\Ext\Views\Helpers\Assets::SetAssetUrlCompletion(FALSE);
 
-		/* * @var $router \MvcCore\Ext\Routers\Locale */
+		/** @var $router \MvcCore\Ext\Routers\Localization */
 		$router = & \MvcCore\Router::GetInstance();
-		/*$router	->SetStricModeBySession(TRUE)
-				->SetRouteToDefaultIfNotMatch(TRUE);*/
 		$router
-			//->SetAllowedLangs('en', 'cs')
-			//->SetFirstRequestStrictlyByUserAgent()
+			->SetDefaultLocatization('en-US')
+			->SetAllowedLocalizations('en-US', 'cs-CZ')
+			->SetLocalizationEquivalents([
+				'en-US'	=> ['en-GB', 'en-CA', 'en-AU'],
+				'cs-CZ'	=> ['sk-SK'],
+			])
+			//->SetRedirectFirstRequestToDefault()
+			->SetStricModeBySession(TRUE)
 			->SetRoutes([
 				'Admin\Index:Index'	=> '/admin',
-				'Front\Index:Index'	=> [
+				/*'Front\Index:Index'	=> [
 					'match'				=> "#^/(?<path>[a-zA-Z0-9\-_]*)#",
 					'reverse'			=> '/<path>',
-				],
-				/*'Front\Index:Index'	=> new \MvcCore\Ext\Routers\Localizations\Route([
-					'controller'		=> 'Front\Index',
-					'action'			=> 'Index',
+				],*/
+				'Front\Sitemap:Index'	=> new \MvcCore\Ext\Routers\Localizations\Route([
+					'pattern'			=> [
+						'en'			=> '/sitemap',
+						'cs'			=> '/mapa-webu',
+					]
+				]),
+				'Front\Index:Index'		=> new \MvcCore\Ext\Routers\Localizations\Route([
 					'match'				=> "#^/(?<path>[a-zA-Z0-9\-_]*)#",
 					'reverse'			=> '/<path>',
-				]),*/
+				]),
 			]);
 	}
 }

@@ -19,8 +19,7 @@ class Index extends Controllers\Front
 		if (strrpos($documentPath, $indexStr) === strlen($documentPath) - strlen($indexStr)) {
 			$documentPath = substr($documentPath, 0, strrpos($documentPath, $indexStr));
 		}
-
-		// TODO
+		if ($documentPath === '/') $documentPath = '/index';
 		$documentPath = '/' . $this->lang . $documentPath;
 		$lastSlashPos = strrpos($documentPath, '/');
 		if ($lastSlashPos !== FALSE)

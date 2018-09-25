@@ -9,12 +9,12 @@ class Document extends XmlModel
 	public static function GetDataPath() {
 		return static::$dataDir;
 	}
-	public function GetUrl () {
-		return self::getRouter()->Url('Front\Index:Index', ['path' => $this->Path]);
-	}
 	protected function & getRouter () {
 		if (self::$router === NULL)
 			self::$router = & \MvcCore\Application::GetInstance()->GetRouter();
 		return self::$router;
+	}
+	public function GetUrl () {
+		return self::getRouter()->Url('Front\Index:Index', ['path' => $this->Path]);
 	}
 }

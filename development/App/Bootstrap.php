@@ -13,12 +13,10 @@ class Bootstrap
 			$app->SetDebugClass('\MvcCore\Ext\Debugs\Tracy');
 		}
 
-		/*$app
-			->SetRouterClass('\\MvcCore\\Ext\\Routers\\Media')
-			->SetDefaultControllerName('Front\Index');*/
-		
 		$app
-			->SetRouterClass('\\MvcCore\\Ext\\Routers\\Locatization')
+			->SetRouterClass('\MvcCore\Ext\Routers\MediaAndLocalization')
+			//->SetRouterClass('\MvcCore\Ext\Routers\Media')
+			//->SetRouterClass('\MvcCore\Ext\Routers\Localization')
 			->SetDefaultControllerName('Front\Index');
 
 		// use this line only if you want to pack application without JS/CSS/fonts/images
@@ -28,21 +26,20 @@ class Bootstrap
 
 		/** @var $router \MvcCore\Ext\Routers\Localization */
 		$router = & \MvcCore\Router::GetInstance();
+		
 		$router
-			->SetDefaultLocatization('en-US')
+			->SetDefaultLocalization('en-US')
 			->SetAllowedLocalizations('en-US', 'cs-CZ')
 			->SetLocalizationEquivalents([
 				'en-US'	=> ['en-GB', 'en-CA', 'en-AU'],
 				'cs-CZ'	=> ['sk-SK'],
 			])
+			->SetSessionExpirationSeconds(\MvcCore\Session::EXPIRATION_SECONDS_DAY)
+			//->SetTrailingSlashBehaviour(1)
 			//->SetRedirectFirstRequestToDefault()
-			->SetStricModeBySession(TRUE)
+			//->SetStricModeBySession(TRUE)
 			->SetRoutes([
 				'Admin\Index:Index'	=> '/admin',
-				/*'Front\Index:Index'	=> [
-					'match'				=> "#^/(?<path>[a-zA-Z0-9\-_]*)#",
-					'reverse'			=> '/<path>',
-				],*/
 				'Front\Sitemap:Index'	=> new \MvcCore\Ext\Routers\Localizations\Route([
 					'pattern'			=> [
 						'en'			=> '/sitemap',

@@ -29,6 +29,15 @@
 					<hr />
 					<?php echo $this->Url('Front\Sitemap:Index', ['localization' => $this->Localization]); ?><br />
 					<?php echo $this->Url('Admin\Index:Index', ['localization' => $this->Localization]); ?><br />
+					<?php echo $this->Url('Admin\Index:Index'); ?><br />
+					<?php echo $this->MediaSiteVersion; ?><br />
+					<br />
+
+					<?php if ($this->RedirectedSourceUrl): ?>
+						<a href="<?php echo $this->RedirectedSourceUrl; ?>">
+							Go back to source url
+						</a>
+					<?php endif; ?>
 
 				</div>
 			</div>

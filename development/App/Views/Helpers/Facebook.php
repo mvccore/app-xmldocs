@@ -10,7 +10,7 @@ class Facebook extends \MvcCore\Ext\Views\Helpers\AbstractHelper
 
 	private $_baseUrlEncoded = NULL;
 
-	public function & SetView (\MvcCore\Interfaces\IView & $view) {
+	public function & SetView (\MvcCore\IView & $view) {
 		parent::SetView($view);
 		if ($this->_facebookAppId === NULL) {
 			$cfg = (object) \MvcCore\Config::GetSystem();

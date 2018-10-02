@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "aff548b3aa12a9830ff854b0c2f241f0",
+    "content-hash": "c9605628d85535779565786caf00dddc",
     "packages": [
         {
             "name": "mobiledetect/mobiledetectlib",
@@ -100,7 +100,7 @@
             "dist": {
                 "type": "path",
                 "url": "../../../packages/mvccore/ext-debug-tracy",
-                "reference": "404aadd4d77421080391d0c6b9e53b389677c9c0",
+                "reference": "6c47ea1f1f53dbd7886ea0f3155cee6429500bf6",
                 "shasum": null
             },
             "require": {
@@ -197,7 +197,7 @@
             "dist": {
                 "type": "path",
                 "url": "../../../packages/mvccore/ext-debug-tracy-routing",
-                "reference": "63df7e6e40f0c9ea163d841278078ae836267f18",
+                "reference": "9fb70132f61432e7627f61454701435457ff6008",
                 "shasum": null
             },
             "require": {
@@ -246,7 +246,7 @@
             "dist": {
                 "type": "path",
                 "url": "../../../packages/mvccore/ext-debug-tracy-session",
-                "reference": "972e94cbdfd1a0e54aa4db8a37df47c16484da05",
+                "reference": "118351b8bf7ee5ca89ee4fdbe447cb88db2a1837",
                 "shasum": null
             },
             "require": {
@@ -292,7 +292,7 @@
             "dist": {
                 "type": "path",
                 "url": "../../../packages/mvccore/ext-router-extended",
-                "reference": "4b40ebef0d42affcbcf9ef931fa79b54b9ee7802",
+                "reference": "8040075a976a266b9243f3bbe6f8d1e48511da3b",
                 "shasum": null
             },
             "require": {
@@ -333,7 +333,7 @@
             "dist": {
                 "type": "path",
                 "url": "../../../packages/mvccore/ext-router-localization",
-                "reference": "35444fc4291e597942f8dbc3ef62626a23db0709",
+                "reference": "4b8c87d2884ec7e39551180de890727d21d5a07c",
                 "shasum": null
             },
             "require": {
@@ -385,7 +385,7 @@
             "dist": {
                 "type": "path",
                 "url": "../../../packages/mvccore/ext-router-media",
-                "reference": "5f83fca6c4d7870d59ba6a1d31cce2fc51cdbd1d",
+                "reference": "0d2c42f6d2df474922d04741e19b20e9dfcbf848",
                 "shasum": null
             },
             "require": {
@@ -432,12 +432,73 @@
             ]
         },
         {
+            "name": "mvccore/ext-router-media-localization",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "../../../packages/mvccore/ext-router-media-localization",
+                "reference": "0c6f0cca9e2148de859c4eec2a80ba58805e346f",
+                "shasum": null
+            },
+            "require": {
+                "mvccore/ext-router-localization": "dev-master",
+                "mvccore/ext-router-media": "dev-master",
+                "mvccore/mvccore": "dev-master",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Tom Flidr",
+                    "homepage": "https://github.com/tomFlidr"
+                }
+            ],
+            "description": "MvcCore - Extension - Router - Media & Localization - extension to manage website media version (full/tablet/mobile) for different templates/css/js files rendering and to manage your website language (or language and locale) version optionaly contained in url address in the beinning.",
+            "keywords": [
+                "address",
+                "ext",
+                "extension",
+                "flag",
+                "framework",
+                "full",
+                "lang",
+                "language",
+                "language version",
+                "locale",
+                "locale version",
+                "localization",
+                "localized url",
+                "media",
+                "mobile",
+                "multi lang",
+                "multi language",
+                "mvc",
+                "mvccore",
+                "plug-in",
+                "plugin",
+                "router",
+                "routes",
+                "routing",
+                "site",
+                "tablet",
+                "version"
+            ]
+        },
+        {
             "name": "mvccore/ext-view-helper",
             "version": "dev-master",
             "dist": {
                 "type": "path",
                 "url": "../../../packages/mvccore/ext-view-helper",
-                "reference": "5a5fc736fd79b679c1c5e97c12af9542e3f247e4",
+                "reference": "145f5239a7dc48b8b64ac3cf58379b47ed5c4bc3",
                 "shasum": null
             },
             "require": {
@@ -482,7 +543,7 @@
             "dist": {
                 "type": "path",
                 "url": "../../../packages/mvccore/ext-view-helper-assets",
-                "reference": "4eed5f658b04fb40739332d593e3692c9e7bc8a6",
+                "reference": "457c4c7620c9ce1670ffbb019eddef770e17cc55",
                 "shasum": null
             },
             "require": {
@@ -537,7 +598,7 @@
             "dist": {
                 "type": "path",
                 "url": "../../../packages/mvccore/ext-view-helper-linebreaks",
-                "reference": "eebd0ed72cf20d6a8e26843e363d9d061eb25813",
+                "reference": "7e2c1fa314d16e3de856768b65344723557d3015",
                 "shasum": null
             },
             "require": {
@@ -587,7 +648,7 @@
             "dist": {
                 "type": "path",
                 "url": "../../../packages/mvccore/mvccore",
-                "reference": "e950bbf06e4144a36b927bbcb7c60a78df877a23",
+                "reference": "dd768a81805604c0a47b4f8b55554804247ea0b2",
                 "shasum": null
             },
             "require": {
@@ -761,8 +822,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "mvccore/mvccore": 20,
-        "mvccore/ext-router-localization": 20,
-        "mvccore/ext-router-media": 20,
+        "mvccore/ext-router-media-localization": 20,
         "mvccore/ext-view-helper-assets": 20,
         "mvccore/ext-view-helper-linebreaks": 20,
         "mvccore/ext-debug-tracy": 20,

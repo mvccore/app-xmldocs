@@ -6,7 +6,7 @@ class Front extends Base
 {
 	protected $layout = 'front';
 
-	/** @var \App\Models\Document|\MvcCore\Interfaces\IModel */
+	/** @var \App\Models\Document|\MvcCore\IModel */
 	protected $document;
 
 	public function PreDispatch () {

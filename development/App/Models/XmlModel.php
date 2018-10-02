@@ -198,7 +198,7 @@ class XmlModel extends Base
 		return [];
 	}
 	public function __toString() {
-		return $this->xml->asXML();
+		return (string) $this->xml->asXML();
 	}
 	// for serialize() method:
 	public function __sleep() {

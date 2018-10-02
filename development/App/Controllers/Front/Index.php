@@ -42,6 +42,11 @@ class Index extends Controllers\Front
 		}
 	}
 	public function IndexAction () {
+		$rawSourceUrl = $this->GetParam(
+			\MvcCore\Ext\Routers\MediaAndLocalization::REDIRECTED_SOURCE_URL_PARAM, 
+			['#[\<\>"]*#', '']
+		);
+		$this->view->RedirectedSourceUrl = $rawSourceUrl ? rawurldecode($rawSourceUrl) : '';
     }
 	public function NotFoundAction () {
 		$this->ErrorAction();

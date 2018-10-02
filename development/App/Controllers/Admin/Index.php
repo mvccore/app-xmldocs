@@ -8,6 +8,12 @@ class Index extends Controllers\Admin
 {
 	public function IndexAction () {
 		$this->view->Title = 'Admin';
-		x($this);
+
+		// tady to dává to co je v session!
+		x($this->request->GetLang());
+		x($this->request->GetLocale());
+
+		//$this->router->SetLocalization('cs', 'CZ');
+		//x($this->Url('Front\Sitemap:Index'));
     }
 }

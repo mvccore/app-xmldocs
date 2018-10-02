@@ -4,8 +4,11 @@ namespace App\Controllers;
 
 class Base extends \MvcCore\Controller
 {
-	/** @var \App\Models\Translator|\MvcCore\Interfaces\IModel */
+	/** @var \App\Models\Translator|\MvcCore\IModel */
 	protected static $translator;
+
+	/** @var \MvcCore\Ext\Routers\ILocalization|\MvcCore\Ext\Routers\IMedia */
+	protected $router = NULL;
 
 	/** @var string */
 	protected $lang = NULL;
@@ -17,17 +20,15 @@ class Base extends \MvcCore\Controller
 		parent::Init();
 		$this->lang = $this->request->GetLang();
 		$this->locale = $this->request->GetLocale();
-		self::$translator = \App\Models\Translator::GetInstance();
+		$this->mediaSiteVersion = $this->request->GetMediaSiteVersion();
+		self::$translator = & \App\Models\Translator::GetInstance();
 	}
 
 	public function PreDispatch() {
 		parent::PreDispatch();
 		if ($this->GetViewEnabled()) {
-			$router = $this->router;
-			$this->view->Localization = implode(
-				$router::LANG_AND_LOCALE_SEPARATOR,
-				[$this->lang, $this->locale]
-			);
+			$this->view->Localization = $this->router->GetLocalization(TRUE);
+			$this->view->MediaSiteVersion = $this->mediaSiteVersion;
 		}
 	}
 }

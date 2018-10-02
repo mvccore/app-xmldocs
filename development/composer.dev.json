@@ -12,6 +12,9 @@
 		"url": "../../../packages/mvccore/ext-router-media"
 	},{
 		"type": "path",
+		"url": "../../../packages/mvccore/ext-router-media-localization"
+	},{
+		"type": "path",
 		"url": "../../../packages/mvccore/ext-router-extended"
 	},{
 		"type": "path",
@@ -50,8 +53,7 @@
 	"require": {
 		"php": ">=5.4.0",
 		"mvccore/mvccore": "dev-master",
-		"mvccore/ext-router-localization": "dev-master",
-		"mvccore/ext-router-media": "dev-master",
+		"mvccore/ext-router-media-localization": "dev-master",
 		"mvccore/ext-view-helper-assets": "dev-master",
 		"mvccore/ext-view-helper-linebreaks": "dev-master",
 		"mvccore/ext-debug-tracy": "dev-master",

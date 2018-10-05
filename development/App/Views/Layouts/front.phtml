@@ -2,7 +2,7 @@
 <html lang="en-US">
 	<head>
 		<meta charset="UTF-8" />
-		<title><?php echo $this->Title; ?></title>
+		<title><?php echo $this->title; ?></title>
 		
 		<?php /* force render mode in newest IE, strictly do not use any back compatibility modes in MSIE browsers for this page */ ?>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -15,33 +15,31 @@
 	</head>
 	<body>
 	
-		<!--[if lt IE 9]><div class="filters"><![endif]-->
-		<!--[if (gt IE 8)|!(IE)]><!--><div class="no-filters">
-			<!--<![endif]-->
+		<!--[if lt IE 9]><div class="old-browser-warning"><p>Your browser is <b>very</b> old. <br />Please install any actual browser, for example <br /><a href="https://www.google.com/chrome" target="_blank">Google Chrome</a>, <a href="https://www.apple.com/safari" target="_blank">Apple Safari</a> or <a href="https://www.mozilla.org/en/firefox/new" target="_blank">Mozilla Firefox</a>.</p></div><![endif]-->
 			
-			<div class="master-container">
-				<div class="content">
+		<div class="master-container">
+			<div class="content">
 
-					<?php echo $this->horizontalNav->Render('navigation-horizontal'); ?>
+				<?php echo $this->horizontalNav->Render('navigation-horizontal'); ?>
 				
-					<?php echo $this->GetContent(); ?>
+				<?php echo $this->GetContent(); ?>
 					
-					<hr />
-					<?php echo $this->Url('Front\Sitemap:Index', ['localization' => $this->Localization]); ?><br />
-					<?php echo $this->Url('Admin\Index:Index', ['localization' => $this->Localization]); ?><br />
-					<?php echo $this->Url('Admin\Index:Index'); ?><br />
-					<?php echo $this->MediaSiteVersion; ?><br />
-					<br />
+				<hr />
+				<?php echo $this->Url('Front\Sitemap:Index', ['localization' => $this->localization]); ?><br />
+				<?php echo $this->Url('Admin\Index:Index', ['localization' => $this->localization]); ?><br />
+				<?php echo $this->Url('Admin\Index:Index'); ?><br />
+				<?php echo $this->mediaSiteVersion; ?><br />
+				<br />
 
-					<?php if ($this->RedirectedSourceUrl): ?>
-						<a href="<?php echo $this->RedirectedSourceUrl; ?>">
-							Go back to source url
-						</a>
-					<?php endif; ?>
+				<?php if ($this->redirectedSourceUrl): ?>
+					<a href="<?php echo $this->redirectedSourceUrl; ?>">
+						Go back to source url
+					</a>
+				<?php endif; ?>
 
-				</div>
 			</div>
-			
+			<?php echo $this->RenderLayout('front/footer.media-navigation'); ?>
+			<?php echo $this->RenderLayout('front/footer.localization-navigation'); ?>
 		</div>
 		
 	</body>

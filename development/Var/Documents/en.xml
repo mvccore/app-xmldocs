@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<doc:data xmlns:doc="../Documents.xsd">
+	<doc:title>High Extensible Framework For Superfast Applications</doc:title>
+	<doc:sequence>1</doc:sequence>
+	<doc:active>1</doc:active>
+	<doc:controller></doc:controller>
+	<doc:action></doc:action>
+	<doc:description></doc:description>
+	<doc:keywords></doc:keywords>
+	<doc:robots>index,follow,noarchive</doc:robots>
+	<doc:og-image></doc:og-image>
+	<doc:og-title></doc:og-title>
+	<doc:og-description></doc:og-description>
+	<doc:itemprop-name></doc:itemprop-name>
+	<doc:itemprop-description></doc:itemprop-description>
+	<doc:navigation-title>Home</doc:navigation-title>
+	<doc:navigation-subtitle></doc:navigation-subtitle>
+	<doc:perex></doc:perex>
+	<doc:body>
+		<h1>MvcCore PHP</h1>
+		<blockquotte>High Extensible Framework For Superfast Applications</blockquotte>
+	</doc:body>
+</doc:data>

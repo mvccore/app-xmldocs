@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <doc:data xmlns:doc="../../Documents.xsd">
-	<doc:title>Stáhnout</doc:title>
+	<doc:title>Stažení a extenze</doc:title>
+	<doc:sequence>3</doc:sequence>
+	<doc:active>1</doc:active>
+	<doc:controller>Front\Packages</doc:controller>
+	<doc:action>List</doc:action>
 	<doc:description></doc:description>
 	<doc:keywords></doc:keywords>
 	<doc:robots>index,follow</doc:robots>
@@ -9,8 +13,10 @@
 	<doc:og-description></doc:og-description>
 	<doc:itemprop-name></doc:itemprop-name>
 	<doc:itemprop-description></doc:itemprop-description>
+	<doc:navigation-title></doc:navigation-title>
+	<doc:navigation-subtitle>Oficiální balíčky</doc:navigation-subtitle>
 	<doc:perex></doc:perex>
 	<doc:body>
-		<h1>Stáhnout</h1>		
+		<h1>Stažení a extenze</h1>
 	</doc:body>
 </doc:data>

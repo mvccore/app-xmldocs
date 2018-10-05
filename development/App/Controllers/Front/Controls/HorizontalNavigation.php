@@ -11,7 +11,9 @@ class HorizontalNavigation extends \MvcCore\Controller
 
 	public function PreDispatch() {
 		parent::PreDispatch();
-		$docsPath = '/' . $this->request->GetLang() . '/(\d+\-).*';
-		$this->view->docs = Models\Document::GetByPathMatch($docsPath);
+		$docsPath = '/' . $this->request->GetLang();
+		$this->view->docs = Models\Document::GetByDirPath(
+			$docsPath, FALSE, ['Sequence' => 'asc', 'Title' => 'asc']
+		);
 	}
 }

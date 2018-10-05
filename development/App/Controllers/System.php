@@ -25,7 +25,7 @@ class System extends Base
 			$data[$key] = $param;
 		}
 		$msg = json_encode($data);
-		\MvcCore\Debug::Log($msg, \MvcCore\Debug::JAVASCRIPT);
+		\MvcCore\Debug::Log($msg, \MvcCore\IDebug::JAVASCRIPT);
 	}
 	private static function _hexToStr ($hex) {
 		$string='';

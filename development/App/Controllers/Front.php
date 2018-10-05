@@ -2,24 +2,36 @@
 
 namespace App\Controllers;
 
+use App\Models;
+
 class Front extends Base
 {
 	protected $layout = 'front';
 
-	/** @var \App\Models\Document|\MvcCore\IModel */
-	protected $document;
+	protected $renderNotFoundIfNoDocument = FALSE;
 
 	public function PreDispatch () {
 		parent::PreDispatch();
 		if ($this->viewEnabled) {
-			$this->view->Lang = $this->lang;
-			$this->view->MediaSiteVersion = $this->request->GetMediaSiteVersion();
+			$this->view->lang = $this->lang;
+			$this->view->mediaSiteVersion = $this->request->GetMediaSiteVersion();
 			$horizontalNav = new \App\Controllers\Front\Controls\HorizontalNavigation($this);
 			$this->AddChildController($horizontalNav)->view->horizontalNav = $horizontalNav;
 			$this->_preDispatchSetUpBundles();
 			$this->_preDispatchSetUpSeoProperties();
+			if ($this->document) {
+				$this->view->document = $this->document;	
+				$this->view->title = $this->document->Title;
+			}
+			if (!$this->ajax && $this->request->GetMethod() == \MvcCore\Request::METHOD_GET && !$this->document) {
+				if ($this->renderNotFoundIfNoDocument) {
+					$this->view->document = new Models\Document();
+					$this->RenderNotFound();
+				}
+			}
 		}
 	}
+
 	private function _preDispatchSetUpBundles () {
 		\MvcCore\Ext\Views\Helpers\Assets::SetGlobalOptions(
 			(array) \MvcCore\Config::GetSystem()->assets
@@ -35,11 +47,12 @@ class Front extends Base
 		$this->view->Js('varFoot')
 			->Append($static . '/js/Front.js');
 	}
+
 	private function _preDispatchSetUpSeoProperties () {
-		$this->view->OgSiteName = 'MvcCore';
-		$this->view->OgUrl = $this->request->GetRequestUrl();
+		$this->view->ogSiteName = 'MvcCore';
+		$this->view->ogUrl = $this->request->GetRequestUrl();
 		if ($this->document && $this->document->Id) {
-			$this->document->OgImage = $this->request->GetDomainUrl() . $this->document->OgImage;
+			$this->view->ogImage = $this->request->GetDomainUrl() . $this->document->OgImage;
 		}
 	}
 }

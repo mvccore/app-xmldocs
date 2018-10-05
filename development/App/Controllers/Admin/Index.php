@@ -10,6 +10,7 @@ class Index extends Controllers\Admin
 		$this->view->Title = 'Admin';
 
 		// tady to dává to co je v session!
+		x("admin ctrl");
 		x($this->request->GetLang());
 		x($this->request->GetLocale());
 

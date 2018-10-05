@@ -1,0 +1,29 @@
+<?php
+	/** @var $this \MvcCore\View */
+
+	/** @var $router \MvcCore\Ext\Routers\IMedia */
+	$router = $this->controller->GetRouter();
+	/** @var $request \MvcCore\Request */
+	$request = $this->controller->GetRequest();
+
+	$currentMediaVersion = $this->mediaSiteVersion;
+	$mediaSiteKeysAndUrlPrefixes = $router->GetAllowedSiteKeysAndUrlPrefixes();
+	$mediaVersionsCount = count($mediaSiteKeysAndUrlPrefixes);
+	$fullUrl = $request->GetFullUrl();
+	$switchMediaVersionUrlParam = \MvcCore\Ext\Routers\IMedia::SWITCH_MEDIA_VERSION_URL_PARAM;
+	$i = 0;
+
+?><div class="mc-footer-media-navigation"><?php
+	echo 'Display' . ': ';
+	foreach ($mediaSiteKeysAndUrlPrefixes as $mediaVersion => $urlPrefix):
+		if ($mediaVersion == $currentMediaVersion):
+			?><span><?php echo $mediaVersion; ?></span><?php
+		else:
+			?><a href="<?php echo $this->Url(
+				'self',
+				[$switchMediaVersionUrlParam  => $mediaVersion]
+			); ?>"><?php echo $mediaVersion; ?></a><?php
+		endif;
+		if (++$i > 0 && $i < $mediaVersionsCount) echo ', ';
+	endforeach;
+?></div>

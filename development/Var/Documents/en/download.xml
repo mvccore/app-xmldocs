@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <doc:data xmlns:doc="../../Documents.xsd">
-	<doc:title>Documentation</doc:title>
+	<doc:title>Download</doc:title>
+	<doc:sequence>2</doc:sequence>
+	<doc:active>1</doc:active>
+	<doc:controller></doc:controller>
+	<doc:action></doc:action>
 	<doc:description></doc:description>
 	<doc:keywords></doc:keywords>
-	<doc:robots>index,follow,noarchive</doc:robots>
+	<doc:robots>index,follow</doc:robots>
 	<doc:og-image></doc:og-image>
 	<doc:og-title></doc:og-title>
 	<doc:og-description></doc:og-description>
 	<doc:itemprop-name></doc:itemprop-name>
 	<doc:itemprop-description></doc:itemprop-description>
+	<doc:navigation-title></doc:navigation-title>
+	<doc:navigation-subtitle></doc:navigation-subtitle>
 	<doc:perex></doc:perex>
 	<doc:body>
-		<h1>Documentation</h1>
+		<h1>Download</h1>		
 	</doc:body>
 </doc:data>

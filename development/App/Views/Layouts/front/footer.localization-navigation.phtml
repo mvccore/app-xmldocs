@@ -1,0 +1,29 @@
+<?php
+	/** @var $this \MvcCore\View */
+
+	/** @var $router \MvcCore\Ext\Routers\ILocalization */
+	$router = $this->controller->GetRouter();
+	/** @var $request \MvcCore\Request */
+	$request = $this->controller->GetRequest();
+	
+	$currentLocalization = $this->localization;
+	$allowedLocalizations = $router->GetAllowedLocalizations();
+	$localizationsCount = count($allowedLocalizations);
+	$fullUrl = $request->GetFullUrl();
+	$switchLocalizationUrlParam = \MvcCore\Ext\Routers\ILocalization::SWITCH_LOCALIZATION_URL_PARAM;
+	$i = 0;
+
+?><div class="mc-footer-localization-navigation"><?php
+	echo 'Display' . ': ';
+	foreach ($allowedLocalizations as $localization):
+		if ($localization == $currentLocalization):
+			?><span><?php echo $localization; ?></span><?php
+		else:
+			?><a href="<?php echo $this->Url(
+				'self',
+				[$switchLocalizationUrlParam  => $localization]
+			); ?>"><?php echo $localization; ?></a><?php
+		endif;
+		if (++$i > 0 && $i < $localizationsCount) echo ', ';
+	endforeach;
+?></div>

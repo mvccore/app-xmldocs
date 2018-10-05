@@ -4,6 +4,11 @@
 		/** @var $this->docs \App\Models\Document[] */ 
 		foreach ($this->docs as $doc):
 	?>
-		<li><a href="<?php echo $doc->GetUrl(); ?>"><?php echo $doc->Title; ?></a></li>
+		<li>
+			<a href="<?php echo $doc->GetUrl(); ?>">
+				<b><?php echo $doc->NavigationTitle; ?></b><br />
+				<small><?php echo $doc->NavigationSubtitle; ?></small>
+			</a>
+		</li>
 	<?php endforeach; ?>
 </ul>

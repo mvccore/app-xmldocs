@@ -8,7 +8,7 @@ class Admin extends Base
 	public function PreDispatch () {
 		parent::PreDispatch();
 		if ($this->viewEnabled) {
-			$this->view->Lang = $this->lang;
+			$this->view->lang = $this->lang;
 			$this->_preDispatchSetUpBundles();
 		}
 	}

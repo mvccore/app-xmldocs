@@ -12,6 +12,7 @@ class Bootstrap
 			\MvcCore\Ext\Debugs\Tracy::$Editor = 'MSVS2017';
 			$app->SetDebugClass('\MvcCore\Ext\Debugs\Tracy');
 		}
+		\MvcCore\Ext\Debugs\Tracy::Init();
 
 		$app
 			->SetRouterClass('\MvcCore\Ext\Routers\MediaAndLocalization')
@@ -26,6 +27,10 @@ class Bootstrap
 
 		/** @var $router \MvcCore\Ext\Routers\Localization */
 		$router = & \MvcCore\Router::GetInstance();
+
+		$app->AddPostRouteHandler(function () {
+			return \App\Controllers\Base::PostRouteHandler();
+		});
 		
 		$router
 			->SetDefaultLocalization('en-US')
@@ -46,8 +51,15 @@ class Bootstrap
 						'cs'			=> '/mapa-webu',
 					]
 				]),
+				'Front\Index:'		=> new \MvcCore\Ext\Routers\Localizations\Route([
+					'match'				=> "#^/testing/(?<action>[a-zA-Z0-9\-_]*)#",
+					'reverse'			=> '/testing/<action>',
+					'defaults'			=> [
+						'action'			=> 'Test3'
+					]
+				]),
 				'Front\Index:Index'		=> new \MvcCore\Ext\Routers\Localizations\Route([
-					'match'				=> "#^/(?<path>[a-zA-Z0-9\-_]*)#",
+					'match'				=> "#^/(?<path>[a-zA-Z0-9\-_/]*)#",
 					'reverse'			=> '/<path>',
 				]),
 			]);

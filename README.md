@@ -1,3 +1,5 @@
+# **THIS REPOSITORY IS DEPRECATED**
+
 # MvcCore - Application - XML Documents
 
 [![Latest Stable Version](https://img.shields.io/badge/Stable-v4.2.0-brightgreen.svg?style=plastic)](https://github.com/mvccore/app-xmldocs/releases)
